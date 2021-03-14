@@ -1,0 +1,35 @@
+DROP DATABASE IF EXISTS Proyecto;
+CREATE DATABASE Proyecto;
+USE Proyecto;
+CREATE TABLE Jugador (
+	Pwd INTEGER PRIMARY KEY NOT NULL,
+	Nombre TEXT NOT NULL
+)ENGINE = InnoDB;
+
+CREATE TABLE Partida (
+	Jugador1 TEXT NOT NULL,
+	Jugador2 TEXT NOT NULL,
+	Jugador3 TEXT NOT NULL,
+	Jugador4 TEXT NOT NULL,
+	Resultado1 INTEGER PRIMARY KEY NOT NULL,
+	Resultado2 INTEGER PRIMARY KEY NOT NULL,
+	Resultado3 INTEGER PRIMARY KEY NOT NULL,
+	Resultado4 INTEGER PRIMARY KEY NOT NULL,
+	FOREIGN KEY (Jugador1) REFERENCES Jugador(Nombre),
+	FOREIGN KEY (Jugador2) REFERENCES Jugador(Nombre),
+	FOREIGN KEY (Jugador3) REFERENCES Jugador(Nombre),
+	FOREIGN KEY (Jugador4) REFERENCES Jugador(Nombre)
+)ENGINE = InnoDB;
+
+INSERT INTO Jugador VALUES(1234, 'Juan');
+INSERT INTO Jugador VALUES(1234, 'Maria');
+INSERT INTO Jugador VALUES(1234, 'Pedro');
+INSERT INTO Jugador VALUES(1234, 'Luis');
+INSERT INTO Jugador VALUES(1234, 'Julia');
+INSERT INTO Jugador VALUES(1234, 'Jose');
+INSERT INTO Jugador VALUES(1234, 'Sara');
+INSERT INTO Jugador VALUES(1234, 'Jordi');
+
+INSERT INTO Partida VALUES('Juan', 'Maria', 'Pedro', 'Luis', 1,2,3,4);
+INSERT INTO Partida VALUES('Julia', 'Jose', 'Sara', 'Jordi', 1,2,3,4);
+
