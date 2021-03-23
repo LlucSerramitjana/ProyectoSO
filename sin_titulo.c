@@ -18,11 +18,10 @@ int main(int argc, char **argv)
 		printf ("Error al inicializar la conexion: %u %s \n", mysql_errno(conn), mysql_error(conn));
 		exit(1);
 	}
-	char jugador[20];
-	printf("Escribe el nombre de un jugador\n");
-	scanf("%s", jugador);
+	
 	char consulta [80];
-	strcpy (consulta, "SELECT Jugador.Nombre FROM Jugador WHERE Jugador.Nombre = '");
+	char nombre[20];
+	strcpy (consulta, "SELECT * FROM partida WHERE ganador=nombre");
 	strcat(consulta, jugador);
 	err=mysql_query (conn, consulta);
 	if (err!=0){
@@ -35,7 +34,7 @@ int main(int argc, char **argv)
 		printf ("No se han obtenido datos en la consulta\n");
 	}
 	else{
-	    printf ("Sí que existe este jugador\n");
+	    printf ("SÃ­ que existe este jugador\n");
 	}
 	mysql_close (conn);
 	exit(0);
